@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daniel Jordan's Resume</title>
+        <link href="/css/resume.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <div class="header">
+                <ul>
+                    <li><h1>{{contact.name}}</h1></li>
+                    <li>{{contact.address}}</li>
+                    <li>{{contact.city}}, {{contact.state}} {{contact.zip}}</li>
+                    <li>{{contact.email}}</li>
+                    <li>{{contact.phone}}</li>
+                    <li>{{contact.website}}</li>
+                    <li>{{contact.github}}</li>
+                </ul>
+            </div>
+            <hr/>
+            <div class="category">
+                <div class="left">Education</div>
+                {{#education.schools}}
+                <div class="right">
+                    <ul>
+                        <li><span class="headline">{{name}}</span>, {{city}}, {{state}}</li>
+                        <!-- loop through multiple degrees, if added in the future -->
+                        {{#degrees}}
+                        <li><strong>Expected Degree:</strong> {{type}}, {{major}}</li>
+                        <li><strong>Emphasis in:</strong> {{emphasis}}</li>
+                        <li><strong>Expected Graduation:</strong> {{graduation_month}}, {{graduation_year}}</li><br/>
+                        <li><strong>Related Coursework:</strong> {{#education.courses}}<span class="list">{{.}}</span>{{/education.courses}}</li>
+                        {{/degrees}}
+                    </ul>
+                </div>
+                {{/education.schools}}
+            </div>
+            <div class="category">
+                <div class="left">Related Skills</div>
+                <div class="right">
+                    <ul>
+                        {{#skills}}
+                        <li class="strong"><i class="fa fa-angle-right icon"></i>{{category}}</li>
+                        <li class="indent">
+                            {{#items}}
+                            <span class="list">{{.}}</span>
+                            {{/items}}
+                        </li>
+                        {{/skills}}
+                    </ul>
+                </div>
+            </div>
+            {{#experience}}
+            <div class="category">
+                <div class="left">{{category}}</div>
+                <div class="right">
+                    <ul>
+                        {{#work}}
+                        <div class="block">
+                            <li class="strong"><span class="headline">{{company}}</span>, {{city}}, {{state}}; {{start_date}}-{{end_date}}  </li>
+                            {{#tasks}}
+                            <li><i class="fa fa-angle-right icon"></i>{{.}}</li>
+                            {{/tasks}}
+                        </div>
+                        {{/work}}
+                    </ul>
+                </div>
+            </div>
+            {{/experience}}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "resume",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.5.1",
+    "hogan-express": "0.5.2",
+    "wkhtmltopdf": "0.1.4",
+    "mongodb": "1.4.5",
+    "nodemailer":"0.6.5"
+  }
+}

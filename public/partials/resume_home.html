@@ -1,0 +1,96 @@
+<!-- education -->
+<div class="row">
+    <div class="span9">
+        <h3 class="cv-section-title">
+        Education
+        </h3>
+    </div>
+</div>
+<div ng-repeat="school in resume.education.schools" class="row ">
+    <div ng-repeat="degree in school.degrees" >
+        <div class="span3 cv-item-description">
+            <h6>
+            School
+            </h6>
+            <p>
+            {{school.city}}, {{school.state}}
+            <br />
+            <span class="mute">
+            {{degree.start}} - {{degree.end}}
+            </span>
+            </p>
+        </div>
+        <div class="span9 cv-item-details">
+            <h4>
+            {{school.name}}
+            </h4>
+            <ul class="disc last">
+                <li>Expected Degree: {{degree.type}}, {{degree.major}}</li>
+                <li>Emphasis in: {{degree.emphasis}}</li>
+                <li>Expected Graduation: {{degree.graduation_month}}, {{degree.graduation_year}}</li>
+            </ul>
+            <br/>
+        </div>
+        <div class="row">
+            <div class="span3 cv-item-description">
+                <h6>Related Courses</h6>
+            </div>
+            <div class="span8 cv-item-details">
+                <h4><span ng-repeat="course in resume.education.courses">{{course}}{{$last ? '' : ', '}}</span></h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /education -->
+<!-- skills -->
+<div class="row">
+    <div class="span9">
+        <h3 class="cv-section-title">Related Skills</h3>
+    </div>
+</div>
+<div ng-repeat="skill in resume.skills" class="row">
+    <div class="span4 cv-item-description">
+        <h6>{{skill.category}}</h6>
+    </div>
+    <div class="span8 cv-item-details">
+        <h4><span ng-repeat="item in skill.items">{{item}}{{$last ? '' : ', '}}</span></h4>
+    </div>
+</div>
+<!-- /skills -->
+<br>
+<!-- work experience -->
+<div ng-repeat="section in resume.experience">
+    <div class="row">
+        <div class="span9">
+            <h3 class="cv-section-title">{{section.category}}</h3>
+        </div>
+    </div>
+    <div ng-repeat="job in section.work" class="row cv-item">
+        <div class="span3 cv-item-description">
+            <h6>{{job.company}}</h6>
+            <p><span class="mute">{{job.start_date}} - {{job.end_date}}</span></p>
+        </div>
+        <div class="span9 cv-item-details">
+            <h4>{{job.title}}</h4>
+            <ul class="disc last">
+                <li ng-repeat="item in job.tasks">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /work experience -->
+<!-- other info -->
+<div class="row">
+    <div class="span9">
+        <h3 class="cv-section-title">Other info</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="span3 cv-item-description">
+        <h6>Github</h6>
+    </div>
+    <div class="span8 cv-item-details">
+        <h4><a ng-href="{{header.github}}" target="_blank">{{header.github}}</a></h4>
+    </div>
+</div>
+<!-- /other info-->

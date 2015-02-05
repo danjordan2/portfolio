@@ -1,0 +1,13 @@
+<ul class="portfolio">
+    <li ng-repeat="project in projects" ng-mouseenter="project.show = true" ng-mouseleave="project.show = false">
+        <a ng-href="/project/{{project.folder}}">
+        <img src="img/portfolio/{{project.folder}}/thumb/{{project.thumb}}"/>
+        <div class="slide-top" ng-show="project.show">
+            <h3>{{project.name}}</h3><hr/>
+            <span>{{project.organization}}</span><br/>
+            <span>{{project.month}} {{project.year}}</span><br/>
+            <i class="fa fa-arrow-right fa-3x"></i>
+        </div>
+        </a>
+    </li>
+</ul>

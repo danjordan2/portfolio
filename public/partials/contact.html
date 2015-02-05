@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="form">
+        <div class="alert alert-{{status}}" ng-show="status && !hide"  ng-click="hide=true">{{message}}</div>
+        <form id="contact-form" name="contactForm" ng-submit="contactForm.$valid && sendEmail()" novalidate>
+            <div class="row">
+                <div class="span12">
+                    <p><input class="text field" type="text" name="name" placeholder="Your name" ng-model="contact.name" ng-class="{'has-error': submitted &&contactForm.name.$error.required}" required /></p>
+                    <p><input class="text field" type="email" name="email" placeholder="Your e-mail address" ng-model="contact.email" ng-class="{'has-error':submitted && contactForm.email.$invalid}" required /></p>
+                    <p><input class="text field" type="text" name="subject" placeholder="Subject" ng-model="contact.subject" ng-class="{'has-error': submitted && contactForm.subject.$error.required}" required/></p>
+                    <p><textarea class="field" name="message" rows="3" cols="25" placeholder="Message" ng-model="contact.message" ng-class="{'has-error': submitted && contactForm.message.$error.required}" required></textarea> </p>
+                    <p><button class="btn " ng-disabled="contactForm.$invalid" ng-click="submitted=true"><i class="fa fa-share"></i> Send</button></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

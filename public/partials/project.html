@@ -1,0 +1,36 @@
+<div ng-hide="project._id">
+    <h1 class="logo">Error: No project found</h1>
+    <a ng-href="/projects">Go Back</a>
+</div>
+<div class="project" ng-show="project._id">
+    <div class="project_banner">
+        <img src="/img/portfolio/{{project.folder}}/banner/{{project.banner}}"/>
+    </div>
+    <h3 class="cv-section-title project_header">
+    Project Description
+    </h3>
+    <p>{{project.description}}</p>
+    <h3 class="cv-section-title project_header">
+    Quick points
+    </h3>
+    <ul class="disc last">
+        <li ng-repeat="point in project.points">{{point}}</li>
+    </ul>
+    <h3 class="cv-section-title project_header">
+    Screenshots
+    </h3>
+    <ul class="screenshots">
+        <li ng-repeat="screenshot in project.screenshots"><a ng-click="modal(screenshot)"><img src="/img/portfolio/{{project.folder}}/screenshots/{{screenshot.thumb}}"></a></li>
+    </ul>
+    <h3 class="cv-section-title project_header">
+    Demo
+    </h3>
+    <p><a ng-href="{{project.demo.link}}" target="_blank">{{project.demo.link}}</a><br/>
+    <strong ng-show="project.demo.instructions">Instructions:</strong> {{project.demo.instructions}}</p>
+    <div ng-show="project.source">
+        <h3 class="cv-section-title project_header">
+        Source
+        </h3>
+        <p><a ng-href="{{project.source}}" target="_blank">{{project.source}}</a></p>
+    </div>
+</div>
