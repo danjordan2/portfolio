@@ -4,7 +4,6 @@ var config = require('./config.js')
 	http = require('http'),
 	path = require('path'),
 	app = express();
-console.log(config);
 app.use(express.compress());  
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
